@@ -8,7 +8,7 @@ const authRoutes = require("./src/routes/authRoutes");
 const app = express();
 
 // Conectar a la base de datos
- connectDB();
+//  connectDB();
 
 // Middlewares
 app.use(express.json());
