@@ -110,9 +110,9 @@ exports.verifyMfa = async (req, res) => {
 };
 
 exports.enableMfa = async (req, res) => {
-  const { session } = req.body;
+  const { accessToken } = req.body;
   try {
-    const result = await cognito.enableMfa({ session });
+    const result = await cognito.enableMfa({ accessToken });
     res.status(200).json(result);
   } catch (error) {
     res.status(400).json({ error: error.message });

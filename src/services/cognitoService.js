@@ -160,3 +160,16 @@ exports.getProfile = async (accessToken) => {
     {}
   );
 };
+exports.enableMfa = async ({ accessToken }) => {
+  const params = {
+    AccessToken: accessToken,
+    SoftwareTokenMfaSettings: {
+      Enabled: true,
+      PreferredMfa: true
+    }
+  }
+
+  await cognito.setUserMFAPreference(params).promise()
+  return { success: true }
+}
+
